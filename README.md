@@ -1,5 +1,5 @@
 # FlickrScraper
-Downloads all images from a public Flickr account
+Uses a webdriver to download all images from a public Flickr account
 
 Use:  
 `npm install selenium-webdriver`  
