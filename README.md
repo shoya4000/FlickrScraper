@@ -1,6 +1,6 @@
 # FlickrScraper
 Uses a webdriver to download all images from a public Flickr account.  
-Avoids having to interact with API, and this also avoids requests being rate-limited, however, is thus a relatively slow process.
+Avoids having to interact with API, and thus also avoids requests being rate-limited, however, is thus a relatively slow process.
 
 Use:  
 `npm install selenium-webdriver`  
