@@ -15,12 +15,16 @@ async function scrollDown(driver) {
 
 async function getNumPages(driver) {
   const script =
-    "return document.querySelectorAll('a[href^=\"" +
-    account +
-    "page\"]').length";
+    "return document.querySelectorAll('a[href^=\"" + account + "page\"]')";
   let numPages = 0;
-  await driver.executeScript(script).then(pages => {
-    numPages = pages - 1;
+  await driver.executeScript(script).then(async pages => {
+    for (i = 0; i < pages.length; i++) {
+      let pageNum = await pages[i].getAttribute("href");
+      pageNum = parseInt(
+        pageNum.replace("https://www.flickr.com" + account + "page", "")
+      );
+      if (pageNum > numPages) numPages = pageNum;
+    }
   });
   return numPages;
 }
